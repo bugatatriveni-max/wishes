@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Diwali My Favourite Person ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: #120015;
+    color: white;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+.page {
+    min-height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.page.active {
+    display: flex;
+}
+
+/* Floating lights and hearts */
+
+.light, .heart {
+    position: absolute;
+    animation: float 5s infinite ease-in-out;
+    pointer-events: none;
+}
+
+.light {
+    color: #ffd700;
+    text-shadow: 0 0 15px gold, 0 0 30px orange;
+}
+
+.heart {
+    color: #ff3366;
+    text-shadow: 0 0 15px red;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) scale(.7); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-110vh) scale(1.4); opacity: 0; }
+}
+
+/* Buttons */
+
+button {
+    background: linear-gradient(45deg, #ff1744, #ff6b00);
+    color: white;
+    border: 2px solid gold;
+    padding: 15px 30px;
+    border-radius: 35px;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 25px;
+    box-shadow: 0 0 20px #ff4444;
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 35px gold;
+}
+
+/* First page */
+
+#page1 {
+    background: radial-gradient(circle, #460024, #120015, #000);
+}
+
+.welcome {
+    font-size: clamp(28px, 6vw, 48px);
+    color: gold;
+    text-shadow: 0 0 20px orange;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 19px;
+    color: #ffc9d9;
+    line-height: 1.7;
+}
+
+/* Second page */
+
+#page2 {
+    background: radial-gradient(circle, #3b0010, #160014, #000);
+}
+
+.di wal {
+    color: red;
+}
+
+.wish {
+    color: #ff253f;
+    font-size: clamp(34px, 8vw, 65px);
+    font-weight: bold;
+    text-shadow: 0 0 10px #ff7777,
+                 0 0 25px red,
+                 0 0 45px orange;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px red; }
+    to { text-shadow: 0 0 35px orange, 0 0 55px gold; }
+}
+
+.message {
+    color: #ffe6a3;
+    font-size: 19px;
+    margin-top: 15px;
+    line-height: 1.7;
+}
+
+/* Animated Deepam */
+
+.lamp {
+    position: relative;
+    width: 180px;
+    height: 130px;
+    margin: 65px auto 30px;
+}
+
+.flame {
+    position: absolute;
+    top: -65px;
+    left: 73px;
+    width: 35px;
+    height: 65px;
+    background: linear-gradient(to top, orange, yellow, white);
+    border-radius: 50% 50% 40% 40%;
+    box-shadow: 0 0 25px orange, 0 0 50px gold;
+    animation: flicker .8s infinite alternate;
+}
+
+@keyframes flicker {
+    from { transform: scale(.9) rotate(-5deg); }
+    to { transform: scale(1.1) rotate(5deg); }
+}
+
+.lamp-body {
+    position: absolute;
+    bottom: 0;
+    width: 180px;
+    height: 75px;
+    background: linear-gradient(#ffdb56, #b94700, #792000);
+    border-radius: 10% 10% 50% 50%;
+    border: 3px solid gold;
+    box-shadow: 0 0 30px orange;
+}
+
+.lamp-body::after {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 15px;
+    background: gold;
+    border-radius: 50%;
+    top: -5px;
+    left: -8px;
+}
+
+/* Love letter */
+
+.heart-symbol {
+    font-size: 65px;
+    cursor: pointer;
+    animation: heartbeat 1s infinite;
+    margin-top: 20px;
+    filter: drop-shadow(0 0 15px red);
+}
+
+@keyframes heartbeat {
+    50% { transform: scale(1.2); }
+}
+
+.letter {
+    display: none;
+    background: rgba(255,255,255,.09);
+    border: 1px solid gold;
+    border-radius: 20px;
+    padding: 25px;
+    max-width: 450px;
+    margin-top: 20px;
+    color: #ffe4bc;
+    line-height: 1.9;
+    font-size: 18px;
+    box-shadow: 0 0 25px #ff8c00;
+    animation: appear 1s;
+}
+
+.letter.show {
+    display: block;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Third page */
+
+#page3 {
+    background: radial-gradient(circle, #590020, #1c001b, #000);
+}
+
+.hug {
+    font-size: 110px;
+    animation: hug 2s infinite;
+    margin: 25px;
+}
+
+@keyframes hug {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.hug-title {
+    font-size: clamp(30px, 7vw, 48px);
+    color: #ff4565;
+    text-shadow: 0 0 20px red;
+}
+
+.final-message {
+    color: #ffdfb0;
+    font-size: 21px;
+    line-height: 1.8;
+    margin-top: 15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1: WELCOME -->
+
+<section class="page active" id="page1">
+
+    <div class="welcome">
+        ✨ Happy Diwali ✨
+    </div>
+
+    <div class="subtitle">
+        A little surprise for someone<br>
+        who is very special to me ❤️
+        <br><br>
+        Distance may keep us apart,<br>
+        but you are always close to my heart.
+    </div>
+
+    <button onclick="nextPage(2)">
+        Open My Surprise ❤️
+    </button>
+
+</section>
+
+
+<!-- PAGE 2: DIWALI WISHES -->
+
+<section class="page" id="page2">
+
+    <h1 class="wish">
+        🪔 Happy Diwali 🪔
+    </h1>
+
+    <p class="message">
+        May your life shine brighter than<br>
+        a thousand beautiful diyas!
+    </p>
+
+    <!-- Deepam -->
+
+    <div class="lamp">
+        <div class="flame"></div>
+        <div class="lamp-body"></div>
+    </div>
+
+    <p style="color:gold; font-size:19px;">
+        A little light, a little love,<br>
+        and endless happiness for you ❤️
+    </p>
+
+    <!-- Tap Heart to open letter -->
+
+    <div class="heart-symbol" onclick="openLetter()">
+        ❤️
+    </div>
+
+    <p style="color:#ffc9d9;">
+        Tap this heart to open something special
+    </p>
+
+    <div class="letter" id="letter">
+
+        <h2 style="color:#ff6688;">
+            💌 A Little Message For You
+        </h2>
+
+        <br>
+
+        You are so special to me.<br><br>
+
+        You are my Dil Ka Wale ❤️<br><br>
+
+        You are far away from me, but you
+        will always have a special place
+        in my heart.<br><br>
+
+        I hope this little surprise brings
+        a new light into your life, just
+        like a beautiful Diwali diya. 🪔<br><br>
+
+        No matter how far we are,
+        wishing you endless smiles,
+        happiness and love! ❤️
+
+    </div>
+
+    <button onclick="nextPage(3)">
+        Send You a Hug ❤️
+    </button>
+
+</section>
+
+
+<!-- PAGE 3: VIRTUAL HUG -->
+
+<section class="page" id="page3">
+
+    <h1 class="hug-title">
+        A Warm Hug For You! ❤️
+    </h1>
+
+    <div class="hug">
+        🤗
+    </div>
+
+    <p class="final-message">
+        Distance doesn't matter<br>
+        when someone is close to your heart.<br><br>
+
+        Sending you the biggest hug<br>
+        filled with love and happiness! 💗
+    </p>
+
+    <button onclick="hugAgain()">
+        One More Hug! 🤗
+    </button>
+
+    <p id="hugText" style="color:gold; margin-top:20px;"></p>
+
+</section>
+
+
+<script>
+
+// Create floating lights and hearts
+
+function createDecorations() {
+    for (let i = 0; i < 35; i++) {
+        let item = document.createElement("div");
+
+        if (i % 2 === 0) {
+            item.className = "light";
+            item.innerHTML = "✦";
+        } else {
+            item.className = "heart";
+            item.innerHTML = "♥";
+        }
+
+        item.style.left = Math.random() * 100 + "vw";
+        item.style.animationDuration = (3 + Math.random() * 6) + "s";
+        item.style.animationDelay = Math.random() * 5 + "s";
+        item.style.fontSize = (15 + Math.random() * 25) + "px";
+
+        document.body.appendChild(item);
+    }
+}
+
+createDecorations();
+
+
+// Switch between pages
+
+function nextPage(pageNumber) {
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("page" + pageNumber)
+        .classList.add("active");
+
+    window.scrollTo(0, 0);
+}
+
+
+// Open the love letter
+
+function openLetter() {
+    document.getElementById("letter").classList.toggle("show");
+}
+
+
+// Hug surprise
+
+function hugAgain() {
+    document.getElementById("hugText").innerHTML =
+        "🤗 Sending you unlimited hugs and lots of love! ❤️";
+}
+
+</script>
+
+</body>
+</html>
